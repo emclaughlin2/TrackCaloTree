@@ -549,9 +549,10 @@ int TrackCaloTree::process_event(PHCompositeNode *topNode) {
     _b_truthpt[_b_n_truth] = sqrt(_b_truthpx[_b_n_truth] * _b_truthpx[_b_n_truth]
                             + _b_truthpy[_b_n_truth] * _b_truthpy[_b_n_truth]);
     _b_truthenergy[_b_n_truth] = truth->get_e();
-    _b_truthpt[_b_n_truth] = sqrt(_b_truthpx[_b_n_truth] * _b_truthpx[_b_n_truth] 
-                            + _b_truthpy[_b_n_truth] * _b_truthpy[_b_n_truth]);
     _b_truthphi[_b_n_truth] = atan(_b_truthpy[_b_n_truth] / _b_truthpx[_b_n_truth]);
+    if (truth->get_px() < 0.0) {
+      _b_truthphi[_b_n_truth] += M_PI;
+    }
     _b_trutheta[_b_n_truth] = atanh(_b_truthpz[_b_n_truth] / _b_truthenergy[_b_n_truth]);
 
     /// Check for nansx

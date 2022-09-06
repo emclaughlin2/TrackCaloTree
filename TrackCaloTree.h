@@ -96,7 +96,7 @@ class TrackCaloTree: public SubsysReco {
 
   static const bool _debug = false;
   static const bool include_tracks = false;
-  static const bool track_debug = true && include_tracks;
+  static const bool track_debug = false && include_tracks;
   static const int nTowers = 10000;
   static const int nTracks = 10000;
   static const int nTruth = 15000;
